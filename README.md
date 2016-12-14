@@ -20,7 +20,7 @@ See `atomizr -h` for a list of all options
 
 ```bash
 # Convert Sublime Text completions into Atom snippets
-$ atomizr example.sublime-completions --target atom
+$ atomizr example.sublime-completions --target atom >> example.cson
 ```
 
 ### Node Module
