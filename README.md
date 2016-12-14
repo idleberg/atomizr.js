@@ -31,20 +31,20 @@ const fs = require('fs');
 
 fs.readFile('./example.sublime-completions', (error, data) => {
     if (error) throw error;
-    let output = Atomizr.atom2sublime(data);
 
+    let output = Atomizr.atom2sublime(data);
     console.log(output);
 });
 ```
 
 #### Methods
 
-* `atom2sublime`
-* `atom2vscode`
-* `sublime2atom`
-* `sublime2vscode`
-* `vscode2atom`
-* `vscode2sublime`
+* `atom2sublime(data)`
+* `atom2vscode(data)`
+* `sublime2atom(data)`
+* `sublime2vscode(data)`
+* `vscode2atom(data)`
+* `vscode2sublime(data)`
 
 ## License
 
