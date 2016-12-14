@@ -33,6 +33,15 @@
     "xml-js": "^0.9.7"
   },
   "devDependencies": {
-    "eslint": "^3.12.1"
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.12.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-debug": "^3.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-jsonlint": "^1.1.2",
+    "jshint": "^2.9.3"
+  },
+  "scripts": {
+    "test": "gulp lint"
   }
 }
