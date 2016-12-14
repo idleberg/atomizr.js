@@ -1,7 +1,7 @@
 {
   "name": "atomizr",
   "version": "0.1.1",
-  "description": "Fancy pants",
+  "description": "Converts snippets for Atom, Sublime Text, and Visual Studio Code",
   "main": "index.js",
   "bin": {
     "atomizr": "./bin/cmd.js"
