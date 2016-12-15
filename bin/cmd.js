@@ -43,19 +43,33 @@ function readFile(input, opts) {
         let output;
         if ((fileExt === '.cson' || fileExt === '.json') && opts.source !== 'vscode') {
             if (opts.target === 'sublime') {
-                output = Atomizr.atom2sublime(inputFile);
+                output = Atomizr.atom2textmate(inputFile);
             } else if (opts.target === 'vscode') {
                 output = Atomizr.atom2vscode(inputFile);
+            } else {
+                output = Atomizr.atom2sublime(inputFile);
             }
         } else if (fileExt === '.sublime-completions' || fileExt === '.sublime-snippet' || opts.source === 'sublime') {
-            if (opts.target === 'atom') {
-                output = Atomizr.sublime2atom(inputFile, isSnippet);
+            if (opts.target === 'textmate') {
+                output = Atomizr.sublime2textmate(inputFile, isSnippet);
             } else if (opts.target === 'vscode') {
                 output = Atomizr.sublime2vscode(inputFile, isSnippet);
+            } else {
+                output = Atomizr.sublime2atom(inputFile, isSnippet);
+            }
+        } else if (fileExt === '.tmSnippet' || opts.source === 'textmate') {
+            if (opts.target === 'sublime') {
+                output = Atomizr.textmate2sublime(inputFile, opts.scope);
+            } else if (opts.target === 'vscode') {
+                output = Atomizr.textmate2vscode(inputFile, opts.scope);
+            } else {
+                output = Atomizr.textmate2atom(inputFile, opts.scope);
             }
         } else if (fileExt === '.json' || opts.source === 'vscode') {
             if (opts.target === 'sublime') {
                 output = Atomizr.vscode2sublime(inputFile, opts.scope);
+            } else if (opts.target === 'textmate') {
+                output = Atomizr.vscode2textmate(inputFile, opts.scope);
             } else {
                 output = Atomizr.vscode2atom(inputFile, opts.scope);
             }

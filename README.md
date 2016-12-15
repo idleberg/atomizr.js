@@ -6,7 +6,7 @@
 [![David](https://img.shields.io/david/idleberg/node-atomizr.svg?style=flat-square)](https://david-dm.org/idleberg/node-atomizr)
 [![David](https://img.shields.io/david/dev/idleberg/node-atomizr.svg?style=flat-square)](https://david-dm.org/idleberg/node-atomizr?type=dev)
 
-Converts snippets for Atom, Sublime Text, and Visual Studio Code. Based on the [Atom package](https://github.com/idleberg/atom-atomizr) of the same name.
+Converts snippets for Atom, Sublime Text, TextMate, and Visual Studio Code. Based on the [Atom package](https://github.com/idleberg/atom-atomizr) of the same name.
 
 ## Installation
 
@@ -43,6 +43,8 @@ fs.readFile('./example.sublime-completions', (error, data) => {
 * `atom2vscode(data)`
 * `sublime2atom(data)`
 * `sublime2vscode(data)`
+* `textmate2atom(data)`
+* `textmate2sublime(data)`
 * `vscode2atom(data)`
 * `vscode2sublime(data)`
 
