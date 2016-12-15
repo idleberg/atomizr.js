@@ -51,19 +51,19 @@ function readFile(input, opts) {
             }
         } else if (fileExt === '.sublime-completions' || fileExt === '.sublime-snippet' || opts.source === 'sublime') {
             if (opts.target === 'textmate') {
-                output = Atomizr.sublime2textmate(inputFile, isSnippet);
+                output = Atomizr.sublime2textmate(inputFile);
             } else if (opts.target === 'vscode') {
-                output = Atomizr.sublime2vscode(inputFile, isSnippet);
+                output = Atomizr.sublime2vscode(inputFile);
             } else {
-                output = Atomizr.sublime2atom(inputFile, isSnippet);
+                output = Atomizr.sublime2atom(inputFile);
             }
         } else if (fileExt === '.tmSnippet' || opts.source === 'textmate') {
             if (opts.target === 'sublime') {
-                output = Atomizr.textmate2sublime(inputFile, opts.scope);
+                output = Atomizr.textmate2sublime(inputFile);
             } else if (opts.target === 'vscode') {
-                output = Atomizr.textmate2vscode(inputFile, opts.scope);
+                output = Atomizr.textmate2vscode(inputFile);
             } else {
-                output = Atomizr.textmate2atom(inputFile, opts.scope);
+                output = Atomizr.textmate2atom(inputFile);
             }
         } else if (fileExt === '.json' || opts.source === 'vscode') {
             if (opts.target === 'sublime') {
