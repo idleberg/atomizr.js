@@ -36,7 +36,7 @@ function readFile(input, opts) {
         let isSnippet;
         if (fileExt === '.sublime-completions') {
             isSnippet = false;
-        } else if (fileExt === '.sublime-snippet') {
+        } else if (fileExt === '.sublime-snippet' || input.startsWith('<?xml')) {
             isSnippet = true;
         }
 
@@ -51,11 +51,11 @@ function readFile(input, opts) {
             }
         } else if (fileExt === '.sublime-completions' || fileExt === '.sublime-snippet' || opts.source === 'sublime') {
             if (opts.target === 'textmate') {
-                output = Atomizr.sublime2textmate(inputFile);
+                output = Atomizr.sublime2textmate(inputFile, isSnippet);
             } else if (opts.target === 'vscode') {
-                output = Atomizr.sublime2vscode(inputFile);
+                output = Atomizr.sublime2vscode(inputFile, isSnippet);
             } else {
-                output = Atomizr.sublime2atom(inputFile);
+                output = Atomizr.sublime2atom(inputFile, isSnippet);
             }
         } else if (fileExt === '.tmSnippet' || opts.source === 'textmate') {
             if (opts.target === 'sublime') {

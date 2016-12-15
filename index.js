@@ -46,12 +46,11 @@ module.exports = {
         return output;
     },
 
-    sublime2atom: function(input) {
+    sublime2atom: function(input, isSnippet = false) {
         let data;
 
         try {
-            // Unreliable but cheap
-            if (input.startsWith('<?xml')) {
+            if (isSnippet === true) {
                 data = SublimeText.read_xml(input);
             } else {
                 data = SublimeText.read_json(input);
@@ -65,12 +64,11 @@ module.exports = {
         return output;
     },
 
-    sublime2textmate: function(input) {
+    sublime2textmate: function(input, isSnippet = false) {
         let data;
 
         try {
-            // Unreliable but cheap
-            if (input.startsWith('<?xml')) {
+            if (isSnippet === true) {
                 data = SublimeText.read_xml(input);
             } else {
                 data = SublimeText.read_json(input);
