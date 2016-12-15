@@ -1,10 +1,15 @@
+# dependencies
+bower_components/
+node_modules/
+vendor/
+
+# package manager files
+npm-debug.log*
+yarn-error.log
+yarn.lock
+
+# project specific
 *.cson
 *.sublime-completions
 *.sublime-snippet
-bower_components/
-node_modules/
-npm-debug.log*
 todo.md
-vendor/
-yarn-error.log
-yarn.lock
