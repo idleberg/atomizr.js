@@ -12,10 +12,10 @@ program
     .usage('<file> [options]')
     .option('-s, --source [source]', 'specify conversion source')
     .option('-t, --target [target]', 'specify conversion target', 'atom')
+    .option('-g, --grammar [scope]', 'specify grammar scope for Visual Studio Code source')
     .option('-A, --addtabs', 'add trailing tab-stops')
     .option('-I, --ignoretab', 'ignore tab-stop separator')
     .option('-R, --removetabs', 'remove trailing tab-stops')
-    .option('-S, --scope [scope]', 'specify scope for Visual Studio Code source')
     .action(function(file) {
 
         readFile(file, program);
@@ -31,7 +31,6 @@ function readFile(input, opts) {
 
         let inputFile = data.toString();
         let fileExt = path.extname(input);
-
 
         let isSnippet;
         if (fileExt === '.sublime-completions') {
@@ -67,11 +66,11 @@ function readFile(input, opts) {
             }
         } else if (fileExt === '.json' || opts.source === 'vscode') {
             if (opts.target === 'sublime') {
-                output = Atomizr.vscode2sublime(inputFile, opts.scope);
+                output = Atomizr.vscode2sublime(inputFile, opts.grammar);
             } else if (opts.target === 'textmate') {
-                output = Atomizr.vscode2textmate(inputFile, opts.scope);
+                output = Atomizr.vscode2textmate(inputFile, opts.grammar);
             } else {
-                output = Atomizr.vscode2atom(inputFile, opts.scope);
+                output = Atomizr.vscode2atom(inputFile, opts.grammar);
             }
         } else {
             return console.error('Error: Unsupported file-type');
