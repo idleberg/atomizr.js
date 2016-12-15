@@ -23,6 +23,8 @@ See `atomizr -h` for a list of all options
 $ atomizr example.sublime-completions --target atom >> example.cson
 ```
 
+Specifying `--source` is optional. However, sometimes it's necessary to determine whether the source is for Atom or Visual Studio Code (both use `.json`!) When converting a Visual Studio Code snippet, the scope for the target should be supplied (e.g. `--scope .source.haskell`) – otherwise `.source` will be used.
+
 ### Node Module
 
 ```js
@@ -39,14 +41,22 @@ fs.readFile('./example.sublime-completions', (error, data) => {
 
 #### Methods
 
-* `atom2sublime(data)`
-* `atom2vscode(data)`
-* `sublime2atom(data)`
-* `sublime2vscode(data)`
-* `textmate2atom(data)`
-* `textmate2sublime(data)`
-* `vscode2atom(data)`
-* `vscode2sublime(data)`
+* Atom
+    * `atom2sublime(data)`
+    * `atom2textmate(data)`
+    * `atom2vscode(data)`
+* Sublime Text
+    * `sublime2atom(data, bool:is_snippet)`
+    * `sublime2textmate(data, bool:is_snippet)`
+    * `sublime2vscode(data, bool:is_snippet)`
+* TextMate
+    * `textmate2atom(data)`
+    * `textmate2sublime(data)`
+    * `textmate2vscode(data)`
+* Visual Studio Code
+    * `vscode2atom(data)`
+    * `vscode2sublime(data)`
+    * `vscode2textmate(data)`
 
 ## License
 
