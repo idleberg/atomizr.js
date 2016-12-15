@@ -54,9 +54,9 @@ fs.readFile('./example.sublime-completions', (error, data) => {
     * `textmate2sublime(data)`
     * `textmate2vscode(data)`
 * Visual Studio Code
-    * `vscode2atom(data)`
-    * `vscode2sublime(data)`
-    * `vscode2textmate(data)`
+    * `vscode2atom(data, scope)`
+    * `vscode2sublime(data, scope)`
+    * `vscode2textmate(data, scope)`
 
 ## License
 
