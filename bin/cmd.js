@@ -10,12 +10,12 @@ program
     .version(meta.version)
     .arguments('<file>')
     .usage('<file> [options]')
-    .option('-s, --source [source]', 'Specify conversion source')
-    .option('-t, --target [target]', 'Specify conversion target', 'atom')
-    .option('-A, --addtabs', 'Add trailing tab-stops')
-    .option('-I, --ignoretab', 'Ignore tab-stop separator')
-    .option('-R, --removetabs', 'Remove trailing tab-stops')
-    .option('-S, --scope [scope]', 'Specify scope for Visual Studio Code source')
+    .option('-s, --source [source]', 'specify conversion source')
+    .option('-t, --target [target]', 'specify conversion target', 'atom')
+    .option('-A, --addtabs', 'add trailing tab-stops')
+    .option('-I, --ignoretab', 'ignore tab-stop separator')
+    .option('-R, --removetabs', 'remove trailing tab-stops')
+    .option('-S, --scope [scope]', 'specify scope for Visual Studio Code source')
     .action(function(file) {
 
         readFile(file, program);
