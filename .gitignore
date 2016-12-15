@@ -12,4 +12,5 @@ yarn.lock
 *.cson
 *.sublime-completions
 *.sublime-snippet
+*.tmSnippet
 todo.md
