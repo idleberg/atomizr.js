@@ -23,7 +23,7 @@ See `atomizr -h` for a list of all options
 $ atomizr example.sublime-completions --target atom >> example.cson
 ```
 
-Specifying `--source` is optional. However, sometimes it's necessary to determine whether the source is for Atom or Visual Studio Code (both use `.json`!) When converting a Visual Studio Code snippet, the scope for the target should be supplied (e.g. `--scope .source.haskell`) – otherwise `.source` will be used.
+Specifying `--source` is optional. However, since both, Atom and Visual Studio Code, work with `.json` snippets, it might be necessary to determine the source. When converting a Visual Studio Code snippet, the target scope for the target should be supplied (e.g. `--scope .source.haskell`) – otherwise the generic `.source` will be used.
 
 ### Node Module
 
