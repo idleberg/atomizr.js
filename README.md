@@ -41,19 +41,22 @@ fs.readFile('./example.sublime-completions', (error, data) => {
 
 #### Methods
 
-* Atom
+* **Atom**
     * `atom2sublime(data, [options Object])`
     * `atom2textmate(data, [options Object])`
     * `atom2vscode(data, [options Object])`
-* Sublime Text
+
+* **Sublime Text**
     * `sublime2atom(data, [options Object])`
     * `sublime2textmate(data, [options Object])`
     * `sublime2vscode(data, [options Object])`
-* TextMate
+
+* **TextMate**
     * `textmate2atom(data, [options Object])`
     * `textmate2sublime(data, [options Object])`
     * `textmate2vscode(data), [options Object]`
-* Visual Studio Code
+
+* **Visual Studio Code**
     * `vscode2atom(data, [options Object])`
     * `vscode2sublime(data, [options Object])`
     * `vscode2textmate(data, [options Object])`
