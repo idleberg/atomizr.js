@@ -25,7 +25,7 @@ $ atomizr example.sublime-completions --target atom >> example.cson
 
 Specifying `--source` is optional. However, since both, Atom and Visual Studio Code, work with `.json` snippets, it might be necessary to determine the source. When converting a Visual Studio Code snippet, the target scope for the target should be supplied (e.g. `--scope .source.haskell`) – otherwise the generic `.source` will be used.
 
-### Node Module
+### Node
 
 ```js
 const Atomizr = require('atomizr');
@@ -42,21 +42,21 @@ fs.readFile('./example.sublime-completions', (error, data) => {
 #### Methods
 
 * Atom
-    * `atom2sublime(data)`
-    * `atom2textmate(data)`
-    * `atom2vscode(data)`
+    * `atom2sublime(data, [options Object])`
+    * `atom2textmate(data, [options Object])`
+    * `atom2vscode(data, [options Object])`
 * Sublime Text
-    * `sublime2atom(data, bool:is_snippet)`
-    * `sublime2textmate(data, bool:is_snippet)`
-    * `sublime2vscode(data, bool:is_snippet)`
+    * `sublime2atom(data, [options Object])`
+    * `sublime2textmate(data, [options Object])`
+    * `sublime2vscode(data, [options Object])`
 * TextMate
-    * `textmate2atom(data)`
-    * `textmate2sublime(data)`
-    * `textmate2vscode(data)`
+    * `textmate2atom(data, [options Object])`
+    * `textmate2sublime(data, [options Object])`
+    * `textmate2vscode(data), [options Object]`
 * Visual Studio Code
-    * `vscode2atom(data, scope)`
-    * `vscode2sublime(data, scope)`
-    * `vscode2textmate(data, scope)`
+    * `vscode2atom(data, [options Object])`
+    * `vscode2sublime(data, [options Object])`
+    * `vscode2textmate(data, [options Object])`
 
 ## License
 
