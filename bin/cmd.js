@@ -15,11 +15,8 @@ program
     .option('-g, --grammar [scope]', 'specify grammar scope for Visual Studio Code source')
     .option('-A, --addtabs', 'add trailing tab-stops')
     .option('-I, --ignoretab', 'ignore tab-stop separator')
-    .option('-R, --removetabs', 'remove trailing tab-stops')
     .action(function(file) {
-
         readFile(file, program);
-        
     })
  .parse(process.argv);
 
@@ -39,22 +36,27 @@ function readFile(input, opts) {
             isSnippet = true;
         }
 
-        let output;
+        let output, scope;
         if ((fileExt === '.cson' || fileExt === '.json') && opts.source !== 'vscode') {
+            scope = opts.grammar ? opts.grammar : null;
+
             if (opts.target === 'sublime') {
-                output = Atomizr.atom2textmate(inputFile);
+                output = Atomizr.atom2textmate(inputFile, {scope: scope});
             } else if (opts.target === 'vscode') {
-                output = Atomizr.atom2vscode(inputFile);
+                output = Atomizr.atom2vscode(inputFile, {scope: scope});
             } else {
-                output = Atomizr.atom2sublime(inputFile);
+                output = Atomizr.atom2sublime(inputFile, {scope: scope});
             }
         } else if (fileExt === '.sublime-completions' || fileExt === '.sublime-snippet' || opts.source === 'sublime') {
+            scope = opts.grammar ? opts.grammar : null;
+            let ignore_separator = opts.ignoretab ? true : false;
+            
             if (opts.target === 'textmate') {
-                output = Atomizr.sublime2textmate(inputFile, isSnippet);
+                output = Atomizr.sublime2textmate(inputFile, {is_snippet: isSnippet, scope: scope, ignore_separator: ignore_separator});
             } else if (opts.target === 'vscode') {
-                output = Atomizr.sublime2vscode(inputFile, isSnippet);
+                output = Atomizr.sublime2vscode(inputFile, {is_snippet: isSnippet, scope: scope, ignore_separator: ignore_separator});
             } else {
-                output = Atomizr.sublime2atom(inputFile, isSnippet);
+                output = Atomizr.sublime2atom(inputFile, {is_snippet: isSnippet, scope: scope, ignore_separator: ignore_separator});
             }
         } else if (fileExt === '.tmSnippet' || opts.source === 'textmate') {
             if (opts.target === 'sublime') {
@@ -65,12 +67,14 @@ function readFile(input, opts) {
                 output = Atomizr.textmate2atom(inputFile);
             }
         } else if (fileExt === '.json' || opts.source === 'vscode') {
+            scope = opts.grammar ? opts.grammar : '.source';
+            
             if (opts.target === 'sublime') {
-                output = Atomizr.vscode2sublime(inputFile, opts.grammar);
+                output = Atomizr.vscode2sublime(inputFile, {scope: scope});
             } else if (opts.target === 'textmate') {
-                output = Atomizr.vscode2textmate(inputFile, opts.grammar);
+                output = Atomizr.vscode2textmate(inputFile, {scope: scope});
             } else {
-                output = Atomizr.vscode2atom(inputFile, opts.grammar);
+                output = Atomizr.vscode2atom(inputFile, {scope: scope});
             }
         } else {
             return console.error('Error: Unsupported file-type');

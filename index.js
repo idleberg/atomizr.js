@@ -4,11 +4,14 @@ const TextMate = require('./lib/textmate');
 const Vscode = require('./lib/vscode');
 
 module.exports = {
-    atom2sublime: function(input) {
+
+    // Atom to anything
+
+    atom2sublime: function(input, options) {
         let data, output;
 
         try {
-            data = Atom.read_cson(input);
+            data = Atom.read_cson(input, options);
             output = SublimeText.write_json(data);
         } catch (error) {
             throw error;
@@ -17,11 +20,11 @@ module.exports = {
         return output;
     },
 
-    atom2textmate: function(input) {
+    atom2textmate: function(input, options) {
         let data, output;
 
         try {
-            data = Atom.read_cson(input);
+            data = Atom.read_cson(input, options);
             output = TextMate.write_plist(data);
         } catch (error) {
             throw error;
@@ -30,11 +33,11 @@ module.exports = {
         return output;
     },
 
-    atom2vscode: function(input) {
+    atom2vscode: function(input, options) {
         let data, output;
 
         try {
-            data = Atom.read_cson(input);
+            data = Atom.read_cson(input, options);
             output = Vscode.write_json(data);
         } catch (error) {
             throw error;
@@ -43,14 +46,16 @@ module.exports = {
         return output;
     },
 
-    sublime2atom: function(input, isSnippet = false) {
+    // Sublime Text to anything
+
+    sublime2atom: function(input, options) {
         let data, output;
 
         try {
-            if (isSnippet === true) {
-                data = SublimeText.read_xml(input);
+            if (options.is_snippet === true) {
+                data = SublimeText.read_xml(input, options);
             } else {
-                data = SublimeText.read_json(input);
+                data = SublimeText.read_json(input, options);
             }
             output = Atom.write_cson(data);
         } catch (error) {
@@ -60,14 +65,14 @@ module.exports = {
         return output;
     },
 
-    sublime2textmate: function(input, isSnippet = false) {
+    sublime2textmate: function(input, options) {
         let data, output;
 
         try {
-            if (isSnippet === true) {
-                data = SublimeText.read_xml(input);
+            if (options.is_snippet === true) {
+                data = SublimeText.read_xml(input, options);
             } else {
-                data = SublimeText.read_json(input);
+                data = SublimeText.read_json(input, options);
             }
             output = TextMate.write_plist(data);
         } catch (error) {
@@ -77,14 +82,14 @@ module.exports = {
         return output;
     },
 
-    sublime2vscode: function(input, isSnippet = false) {
+    sublime2vscode: function(input, options) {
         let data, output;
 
         try {
-            if (isSnippet === true) {
-                data = SublimeText.read_xml(input);
+            if (options.is_snippet === true) {
+                data = SublimeText.read_xml(input, options);
             } else {
-                data = SublimeText.read_json(input);
+                data = SublimeText.read_json(input, options);
             }
             output = Vscode.write_json(data);
         } catch (error) {
@@ -94,11 +99,13 @@ module.exports = {
         return output;
     },
 
-    textmate2atom: function(input) {
+    // TextMate to anything
+
+    textmate2atom: function(input, options) {
         let data, output;
 
         try {
-            data = TextMate.read_plist(input);
+            data = TextMate.read_plist(input, options);
             output = Atom.write_cson(data);
         } catch (error) {
             throw error;
@@ -107,11 +114,11 @@ module.exports = {
         return output;
     },
 
-    textmate2sublime: function(input) {
+    textmate2sublime: function(input, options) {
         let data, output;
 
         try {
-            data = TextMate.read_plist(input);
+            data = TextMate.read_plist(input, options);
             output = SublimeText.write_json(data);
         } catch (error) {
             throw error;
@@ -120,11 +127,11 @@ module.exports = {
         return output;
     },
 
-    textmate2vscode: function(input) {
+    textmate2vscode: function(input, options) {
         let data, output;
 
         try {
-            data = TextMate.read_plist(input);
+            data = TextMate.read_plist(input, options);
             output = Vscode.write_json(data);
         } catch (error) {
             throw error;
@@ -133,11 +140,13 @@ module.exports = {
         return output;
     },
 
-    vscode2atom: function(input, scope = 'source') {
+    // Visual Studio Code to anything
+
+    vscode2atom: function(input, options) {
         let data, output;
 
         try {
-            data = Vscode.read_json(input, scope);
+            data = Vscode.read_json(input, options);
             output = Atom.write_cson(data);
         } catch (error) {
             throw error;
@@ -146,11 +155,11 @@ module.exports = {
         return output;
     },
 
-    vscode2sublime: function(input, scope = 'source') {
+    vscode2sublime: function(input, options) {
         let data, output;
 
         try {
-            data = Vscode.read_json(input, scope);
+            data = Vscode.read_json(input, options);
             output = SublimeText.write_json(data);
         } catch (error) {
             throw error;
@@ -159,11 +168,11 @@ module.exports = {
         return output;
     },
 
-    vscode2textmate: function(input, scope = 'source') {
+    vscode2textmate: function(input, options) {
         let data, output;
 
         try {
-            data = Vscode.read_json(input, scope);
+            data = Vscode.read_json(input, options);
             output = TextMate.write_plist(data);
         } catch (error) {
             throw error;
