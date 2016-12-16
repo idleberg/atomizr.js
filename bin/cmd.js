@@ -13,7 +13,6 @@ program
     .option('-s, --source [source]', 'specify conversion source')
     .option('-t, --target [target]', 'specify conversion target', 'atom')
     .option('-g, --grammar [scope]', 'specify grammar scope for Visual Studio Code source')
-    .option('-A, --addtabs', 'add trailing tab-stops')
     .option('-I, --ignoretab', 'ignore tab-stop separator')
     .action(function(file) {
         readFile(file, program);
