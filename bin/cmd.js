@@ -58,12 +58,14 @@ function readFile(input, opts) {
                 output = Atomizr.sublime2atom(inputFile, {is_snippet: isSnippet, scope: scope, ignore_separator: ignore_separator});
             }
         } else if (fileExt === '.tmSnippet' || opts.source === 'textmate') {
+            scope = opts.grammar ? opts.grammar : null;
+
             if (opts.target === 'sublime') {
-                output = Atomizr.textmate2sublime(inputFile);
+                output = Atomizr.textmate2sublime(inputFile, {scope: scope});
             } else if (opts.target === 'vscode') {
-                output = Atomizr.textmate2vscode(inputFile);
+                output = Atomizr.textmate2vscode(inputFile, {scope: scope});
             } else {
-                output = Atomizr.textmate2atom(inputFile);
+                output = Atomizr.textmate2atom(inputFile, {scope: scope});
             }
         } else if (fileExt === '.json' || opts.source === 'vscode') {
             scope = opts.grammar ? opts.grammar : '.source';
