@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idleberg/node-atomizr.git"
+    "url": "git+https://github.com/idleberg/atomizr.js.git"
   },
   "keywords": [
     "conversion",
@@ -25,9 +25,9 @@
   "author": "idleberg",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/idleberg/node-atomizr/issues"
+    "url": "https://github.com/idleberg/atomizr.js/issues"
   },
-  "homepage": "https://github.com/idleberg/node-atomizr#readme",
+  "homepage": "https://github.com/idleberg/atomizr.js#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "cson-parser": "^1.3.4",
