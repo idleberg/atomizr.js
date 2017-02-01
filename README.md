@@ -6,6 +6,8 @@
 [![David](https://img.shields.io/david/idleberg/atomizr.js.svg?style=flat-square)](https://david-dm.org/idleberg/atomizr.js)
 [![David](https://img.shields.io/david/dev/idleberg/atomizr.js.svg?style=flat-square)](https://david-dm.org/idleberg/atomizr.js?type=dev)
 
+**WARNING: This project has been renamed to node-atomizr. Install using `npm i node-atomizr` instead.**
+
 Converts snippets for Atom, Sublime Text, TextMate, and Visual Studio Code. Based on the [Atom package](https://github.com/idleberg/atom-atomizr) of the same name.
 
 ## Installation
